@@ -41,31 +41,15 @@ public class IfElseStatementTheme {
         System.out.println("\n2. Поиск max и min числа" + "\n" + 
                     "------------------------------------------------------------");
 
-        int num1 = 584;
+        int num1 = 587;
         int num2 = 383;
-        int maxNum;
-        int minNum;
 
         if (num1 > num2) {
-            maxNum = num1;
-            minNum = num2;
-
-            System.out.println("Second number: " + num1 + "\n" +
-                    "First number: " + num2 + "\n" +
-                    "Largest number: "+ maxNum + "\n" +
-                    "Smallest number: " + minNum);
+            System.out.println("Largest number: "+ num1 + "\n" + "Smallest number: " + num2);
         } else if (num1 < num2) {
-            maxNum = num2;
-            minNum = num1;
-
-            System.out.println("Second number: " + num1 + "\n" +
-                    "First number: " + num2 + "\n" +
-                    "Largest number: "+ maxNum + "\n" +
-                    "Smallest number: " + minNum);
+            System.out.println("Largest number: "+ num2 + "\n" + "Smallest number: " + num1);
         } else {
-            System.out.println("Second number: " + num1 + "\n" +
-                    "First number: " + num2 + "\n" +
-                    "Numbers are equal");
+            System.out.println("Numbers are equal");
         }
 
         System.out.println("\n3. Работа с числом" + "\n" +
@@ -73,20 +57,15 @@ public class IfElseStatementTheme {
 
         if (num1 == 0) {
             System.out.println("Number is zero");
-            return;
-        }
-
-        int num1Remainder = num1 % 2;
-
-        if (num1Remainder == 0) {
-            if (num1 > 0) {
+        } else if (num1 > 0) {
+            if (num1 % 2 == 0) {
                 System.out.println("Number " + num1 + " " + "even, positive");
             } else {
-                System.out.println("Number " + num1 + " " + "even, negative");
-            }
-        } else if (num1Remainder != 0) {
-            if (num1 > 0) {
                 System.out.println("Number " + num1 + " " + "odd, positive");
+            }
+        } else {
+            if (num1 % 2 == 0) {
+                System.out.println("Number " + num1 + " " + "even, negative");
             } else {
                 System.out.println("Number " + num1 + " " + "odd, negative");
             }
@@ -95,26 +74,29 @@ public class IfElseStatementTheme {
         System.out.println("\n4. Поиск одинаковых цифр в числах" + "\n" +
                 "------------------------------------------------------------");
 
-        int num1Digit1 = num1 / 100;
-        int num2Digit1 = num2 / 100;
-        int num1Digit2 = num1 / 10 % 10;
-        int num2Digit2 = num2 / 10 % 10;
-        int num1Digit3 = num1 % 10;
-        int num2Digit3 = num2 % 10;
+        int num3 = 546;
+        int num4 = 746;
 
-        System.out.println("Second number: " + num1 + "\n" +
-                "First number: " + num2);
+        int num3Digit1 = num3 / 100;
+        int num4Digit1 = num4 / 100;
+        int num3Digit2 = num3 / 10 % 10;
+        int num4Digit2 = num4 / 10 % 10;
+        int num3Digit3 = num3 % 10;
+        int num4Digit3 = num4 % 10;
 
-        if (num1Digit1 == num2Digit1) {
-            System.out.println("Same numbers " + num1Digit1 + "," + " " + "index numbers 1");
+        System.out.println("Second number: " + num3 + "\n" +
+                "First number: " + num4);
+
+        if (num3Digit1 == num4Digit1) {
+            System.out.println("Same numbers " + num3Digit1 + "," + " " + "index numbers 1");
         }
-        if (num1Digit2 == num2Digit2) {
-            System.out.println("Same numbers " + num1Digit2 + "," + " " + "index numbers 2");
+        if (num3Digit2 == num4Digit2) {
+            System.out.println("Same numbers " + num3Digit2 + "," + " " + "index numbers 2");
         }
-        if (num1Digit3 == num2Digit3) {
-            System.out.println("Same numbers " + num1Digit3 + "," + " " + "index numbers 3");
+        if (num3Digit3 == num4Digit3) {
+            System.out.println("Same numbers " + num3Digit3 + "," + " " + "index numbers 3");
         }
-        if (num1Digit1 != num2Digit1 && num1Digit2 != num2Digit2 && num1Digit3 != num2Digit3) {
+        if (num3Digit1 != num4Digit1 && num3Digit2 != num4Digit2 && num3Digit3 != num4Digit3) {
             System.out.println("Match not found");
         }
 
@@ -150,8 +132,7 @@ public class IfElseStatementTheme {
             yearlyRatePercent = 10;
         }
 
-        double grossTotal = deposit;
-        grossTotal += deposit * yearlyRatePercent / 100;
+        double grossTotal = deposit + deposit * yearlyRatePercent / 100;
 
         System.out.printf("Deposit: %d RUB%nYearly rate: %d%%%n" +
                 "Gross total: %.2f RUB%n", deposit, yearlyRatePercent, grossTotal);
@@ -197,11 +178,11 @@ public class IfElseStatementTheme {
         System.out.println("\n8. Расчёт прибыли" + "\n" +
                "-----------------------------------------------------------");
 
-        int monthlyRentPrice = 5_000;
-        int costPrice = 9_000;
-        int productMonthlyProfit = 13_000;
+        double monthlyRentPrice = 5_000;
+        double costPrice = 9_000;
+        double productMonthlyProfit = 13_000;
 
-        double yearlyNetAmount = (double) 12 * (productMonthlyProfit - monthlyRentPrice - costPrice);
+        double yearlyNetAmount = 12 * (productMonthlyProfit - monthlyRentPrice - costPrice);
 
         if (yearlyNetAmount < epsion) {
             System.out.printf("Yearly net amount: %.2f RUB%n", yearlyNetAmount);
