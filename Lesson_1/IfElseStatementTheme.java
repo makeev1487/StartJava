@@ -55,20 +55,20 @@ public class IfElseStatementTheme {
         System.out.println("\n3. Работа с числом" + "\n" +
                     "-------------------------------------------------------------");
 
-        if (num1 == 0) {
-            System.out.println("Number is zero");
-        } else if (num1 > 0) {
+        if (num1 != 0) {
             if (num1 % 2 == 0) {
-                System.out.println("Number " + num1 + " " + "even, positive");
+                System.out.println("This number is even");
             } else {
-                System.out.println("Number " + num1 + " " + "odd, positive");
+                System.out.println("This number is odd");
+            }
+
+            if (num1 < 0) {
+                System.out.println("This number is negative");
+            } else {
+                System.out.println("This number is positive");
             }
         } else {
-            if (num1 % 2 == 0) {
-                System.out.println("Number " + num1 + " " + "even, negative");
-            } else {
-                System.out.println("Number " + num1 + " " + "odd, negative");
-            }
+            System.out.println("This number is 0");
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах" + "\n" +
@@ -145,7 +145,6 @@ public class IfElseStatementTheme {
         int totalGrade = 2;
         int historyGrade = 0;
         int programmingGrade = 0;
-
 
         if (scoreInHistoryPercent <= 60) {
             historyGrade = 2;
