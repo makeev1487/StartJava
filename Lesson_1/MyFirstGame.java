@@ -1,25 +1,23 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int num = 33;
+        int hiddenNum = 33;
         int startRange = 0;
         int endRange = 100;
         int randomNum = 23;
 
-        while (true) {
-            if (num > randomNum) {
-                System.out.println("Number should be larger " + startRange + " and smaller " + num);
+        System.out.println("Number should be larger " + startRange + " and smaller " + (endRange + 1));
 
-                endRange = num + 1;
-            } else if (num < randomNum) {
-                System.out.println("Number should be larger " + num + " and smaller " + endRange);
-
-                startRange = num - 1;
+        while (hiddenNum != randomNum) {
+            if (hiddenNum > randomNum) {
+                System.out.println("Number should be larger " + startRange + " and smaller " + hiddenNum);
+                endRange = hiddenNum - 1;
             } else {
-                System.out.println(num + " number guessed");
-                return;
+                System.out.println("Number should be larger " + hiddenNum + " and smaller " + (endRange + 1));
+                startRange = hiddenNum + 1;
             }
-
-            num = (startRange + endRange) / 2;
+            hiddenNum = (startRange + endRange) / 2;
         }
+
+         System.out.println(hiddenNum + " number guessed");
     }
 }
