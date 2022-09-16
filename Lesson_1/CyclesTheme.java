@@ -71,10 +71,8 @@ public class CyclesTheme {
 
             if (countNums == 5) {
                 System.out.println();
-
                 countNums = 0;
             }
-
             countNums++;
         }
 
@@ -146,7 +144,6 @@ public class CyclesTheme {
 
             do {
                 System.out.print("$");
-
                 countRows--;
             } while (countRows > 0);
 
@@ -158,9 +155,9 @@ public class CyclesTheme {
                 "--------------------------------------------------------------");
         System.out.printf("%4s %4s%n", "Dec", "Char");
 
-        for (int i = 0; i < 123; i++) {
-            if (((char) i < '0' && i % 2 != 0) || ((char) i >= 'a' && (char) i <= 'z' && i % 2 == 0)) {
-                System.out.printf("%3d %3c%n", i, (char) i);
+        for (char i = 0; i < 123; i++) {
+            if ((i < '0' && (int) i % 2 != 0) || (i >= 'a' && i <= 'z' && (int) i % 2 == 0)) {
+                System.out.printf("%3d %3c%n", (int) i, i);
             }
         }
 
