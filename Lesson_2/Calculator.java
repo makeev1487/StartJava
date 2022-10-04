@@ -30,41 +30,58 @@ public class Calculator {
     }
 
     public void setMathOperation(char mathOperation) {
-        if (mathOperation == '+' || mathOperation == '-' || mathOperation == '*' ||
-            mathOperation == '/' || mathOperation == '^' || mathOperation == '%') {
+        if (hasMathOperation ()) {
             this.mathOperation = mathOperation;
         } else {
             System.out.println("Math operation not supported");
         }
     }
 
-    public int sum() {
-        return num1 + num2;
-    }
+    public double getCalculationResult() {
+        double result = 1;
 
-    public int subtract() {
-        return num1 - num2;
-    }
-
-    public int multiply() {
-        return num1 * num2;
-    }
-
-    public double divide() {
-            return (double) num1 / num2;
-    }
-
-    public int exponentiate() {
-        int result = 1;
-
-        for (int i = 0; i < num2; i++) {
-            result *= num1;
-        }
+        switch (mathOperation) {
+                case '+':
+                    result = (double) num1 + num2;
+                    break;
+                case '-':
+                    result = (double) num1 - num2;
+                    break;
+                case '*':
+                    result = (double) num1 * num2;
+                    break;
+                case '/':
+                    if (num2 ==0) {
+                        System.out.println("Cannot be divide by zero");
+                    } else {
+                        result = (double) num1 / num2;
+                    }
+                    break;
+                case '^':
+                    for (int i = 0; i < num2; i++) {
+                    result *= num1;
+                    }
+                    break;
+                case '%':
+                    if (num2 ==0) {
+                        System.out.println("Cannot be divide by zero");
+                    } else {
+                        result = (double) num1 / num2;
+                    }
+                    break;
+                default:
+                    setMathOperation(mathOperation);
+                    break;
+            }
 
         return result;
     }
 
-    public int remainder() {
-        return num1 % num2;
+    public boolean hasMathOperation() {
+        if (mathOperation != '+' || mathOperation != '-' || mathOperation != '*' ||
+            mathOperation != '/' || mathOperation != '^' || mathOperation != '%') {
+            return false;
+        }
+        return true;
     }
 }
