@@ -1,27 +1,27 @@
 public class Calculator {
-    private int num1;
-    private int num2;
+    private double num1;
+    private double num2;
     private char mathOperation;
 
-    public Calculator(int num1, int num2, char mathOperation) {
+    public Calculator(double num1, double num2, char mathOperation) {
         this.num1 = num1;
         this.num2 = num2;
         this.mathOperation = mathOperation;
     }
 
-    public int getNum1() {
+    public double getNum1() {
         return num1;
     }
 
-    public void setNum1(int num1) {
+    public void setNum1(double num1) {
         this.num1 = num1;
     }
 
-    public int getNum2() {
+    public double getNum2() {
         return num2;
     }
 
-    public void setNum2(int num2) {
+    public void setNum2(double num2) {
         this.num2 = num2;
     }
 
@@ -30,54 +30,47 @@ public class Calculator {
     }
 
     public void setMathOperation(char mathOperation) {
-        if (hasMathOperation ()) {
+        if (validateMathOperation ()) {
             this.mathOperation = mathOperation;
         } else {
             System.out.println("Math operation not supported");
         }
     }
 
-    public double getCalculationResult() {
-        double result = 1;
+    public double calc() {
+        double epsilon = 1.0e-10;
 
         switch (mathOperation) {
                 case '+':
-                    result = (double) num1 + num2;
-                    break;
+                    return num1 + num2;
                 case '-':
-                    result = (double) num1 - num2;
-                    break;
+                    return num1 - num2;
                 case '*':
-                    result = (double) num1 * num2;
-                    break;
+                    return num1 * num2;
                 case '/':
-                    if (num2 ==0) {
+                    if (Math.abs(num2) < epsilon) {
                         System.out.println("Cannot be divide by zero");
                     } else {
-                        result = (double) num1 / num2;
+                        return num1 / num2;
                     }
-                    break;
                 case '^':
+                    double result = 1;
+
                     for (int i = 0; i < num2; i++) {
-                    result *= num1;
+                        result *= num1;
                     }
-                    break;
+                    return result;
                 case '%':
-                    if (num2 ==0) {
+                    if (Math.abs(num2) < epsilon) {
                         System.out.println("Cannot be divide by zero");
                     } else {
-                        result = (double) num1 / num2;
+                        return num1 / num2;
                     }
-                    break;
-                default:
-                    setMathOperation(mathOperation);
-                    break;
             }
+            return 0;
+        }
 
-        return result;
-    }
-
-    public boolean hasMathOperation() {
+    public boolean validateMathOperation() {
         if (mathOperation != '+' || mathOperation != '-' || mathOperation != '*' ||
             mathOperation != '/' || mathOperation != '^' || mathOperation != '%') {
             return false;
