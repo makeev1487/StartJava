@@ -6,10 +6,10 @@ public class CalculatorTest {
 
         while(true) {
             System.out.print("Enter a first number: ");
-            double num1 = scanner.nextInt();
+            int num1 = scanner.nextInt();
 
             System.out.print("Enter a second number: ");
-            double num2 = scanner.nextInt();
+            int num2 = scanner.nextInt();
             scanner.nextLine();
 
             System.out.print("Enter a math operation [+,-,*,/,^,%]: ");
@@ -17,20 +17,19 @@ public class CalculatorTest {
 
             Calculator cal = new Calculator(num1, num2, mathOperation);
 
-            double epsilon = 1.0e-10;
+            System.out.println("Result: " + cal.calc());
 
-            if ((mathOperation == '/' || mathOperation == '%') && Math.abs(num2) < epsilon) {
-                cal.calc();
-            } else {
-                System.out.println(num1 + " " + mathOperation + " " +
-                    num2 + " = " + cal.calc());
-            }
+            while (true) {
+                System.out.print("Want to contine calculations [Y/N]: ");
+                char answer = scanner.nextLine().charAt(0);
 
-            System.out.print("Want to contine calculations [Y/N]: ");
-            char answer = scanner.nextLine().charAt(0);
-
-            if (answer == 'N' || answer == 'n') {
-                return;
+                if (answer == 'N' || answer == 'n') {
+                    return;
+                } else if (answer == 'Y' || answer == 'y') {
+                    break;
+                } else {
+                    System.out.println("Answer is not correct");
+                }
             }
         }
     }
