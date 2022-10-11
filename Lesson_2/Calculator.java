@@ -14,7 +14,11 @@ public class Calculator {
     }
 
     public void setNum2(int num2) {
-        this.num2 = num2;
+        if ((mathOperation == '/' || mathOperation == '%') && num2 == 0){
+            System.out.println("Cannot be divide by zero");
+        } else {
+            this.num2 = num2;
+        }
     }
 
     public void setMathOperation(char mathOperation) {
@@ -27,31 +31,22 @@ public class Calculator {
 
     public double calc() {
         switch (mathOperation) {
-                case '+':
-                    return num1 + num2;
-                case '-':
-                    return num1 - num2;
-                case '*':
-                    return num1 * num2;
-                case '/':
-                    if (num2 == 0) {
-                        System.out.println("Cannot be divide by zero");
-                        return 0;
-                    } else {
-                        return (double) num1 / num2;
+            case '+':
+                return num1 + num2;
+            case '-':
+                return num1 - num2;
+            case '*':
+                return num1 * num2;
+            case '/':
+                return (double) num1 / num2;
+            case '^':
+                double result = 1;
+                for (int i = 0; i < num2; i++) {
+                    result *= num1;
                     }
-                case '^':
-                    double result = 1;
-                    for (int i = 0; i < num2; i++) {
-                        result *= num1;
-                    }
-                    return result;
-                case '%':
-                    if (num2 == 0) {
-                        System.out.println("Cannot be divide by zero");
-                    } else {
-                        return num1 / num2;
-                    }
+                return result;
+            case '%':
+                return num1 / num2;
             }
             return 0;
         }
