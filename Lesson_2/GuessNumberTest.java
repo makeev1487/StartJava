@@ -6,19 +6,18 @@ public class GuessNumberTest {
 
         System.out.print("Enter first player name: ");
         String name1 = scanner.nextLine();
-        Player player1Name = new Player(name1);
+        Player player1 = new Player(name1);
 
         System.out.print("Enter second player name: ");
         String name2 = scanner.nextLine();
-        Player player2Name = new Player(name2);
+        Player player2 = new Player(name2);
 
-        GuessNumber game = new GuessNumber(player1Name, player2Name);
-
+        GuessNumber game = new GuessNumber(player1, player2);
         String answer = "yes";
 
         do {
-            if ("yes".equals(answer)){
-                game.startGame();
+            if ("yes".equals(answer)) {
+                game.start();
             }
 
             System.out.print("Want to contine calculations [yes/no]: ");
